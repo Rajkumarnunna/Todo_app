@@ -1,0 +1,218 @@
+:root {
+    --light-bg-color: #f4f4f9;
+    --light-text-color: #333;
+    --light-header-color: #4a90e2;
+    --light-button-bg-color: #4a90e2;
+    --light-button-hover-bg-color: #357abd;
+    --light-delete-button-bg-color: #e94e77;
+    --light-delete-button-hover-bg-color: #d43d5c;
+
+    --dark-bg-color: #333;
+    --dark-text-color: #f4f4f9;
+    --dark-header-color: #4a90e2;
+    --dark-button-bg-color: #4a90e2;
+    --dark-button-hover-bg-color: #357abd;
+    --dark-delete-button-bg-color: #e94e77;
+    --dark-delete-button-hover-bg-color: #d43d5c;
+}
+
+[data-theme="light"] {
+    --bg-color: var(--light-bg-color);
+    --text-color: var(--light-text-color);
+    --header-color: var(--light-header-color);
+    --button-bg-color: var(--light-button-bg-color);
+    --button-hover-bg-color: var(--light-button-hover-bg-color);
+    --delete-button-bg-color: var(--light-delete-button-bg-color);
+    --delete-button-hover-bg-color: var(--light-delete-button-hover-bg-color);
+}
+
+[data-theme="dark"] {
+    --bg-color: var(--dark-bg-color);
+    --text-color: var(--dark-text-color);
+    --header-color: var(--dark-header-color);
+    --button-bg-color: var(--dark-button-bg-color);
+    --button-hover-bg-color: var(--dark-button-hover-bg-color);
+    --delete-button-bg-color: var(--dark-delete-button-bg-color);
+    --delete-button-hover-bg-color: var(--dark-delete-button-hover-bg-color);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative; /* Ensure body is relative for absolute positioning */
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: var(--header-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label, input, button, select {
+    font-size: 1rem;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: light; /* Ensures good contrast */
+    color: var(--text-color); /* Adjust text color based on theme */
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: var(--delete-button-bg-color);
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+li button:hover {
+    background-color: var(--delete-button-hover-bg-color);
+}
+
+#theme-toggle {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 5px #aaa;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    #theme-toggle {
+        align-self: flex-end;
+    }
+}
+
+#notification-area {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+.notification {
+    background-color: light;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.notification h3 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.notification p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+footer p {
+    color: var(--accent-color);
+}
+
+.contact-info {
+    color: var(--contact-info-color);
+}
+
+.contact-info a {
+    color: var(--contact-link-color);
+    text-decoration: none; /* Remove underline */
+}
+
+.contact-info a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+[data-theme="light"] .contact-info {
+    --contact-info-color: #333; /* Darker color for light theme */
+    --contact-link-color: #007BFF; /* Blue color for links in light theme */
+}
+
+[data-theme="dark"] .contact-info {
+    --contact-info-color: #f4f4f9; /* Lighter color for dark theme */
+    --contact-link-color: #4A90E2; /* Lighter blue color for links in dark theme */
+}
